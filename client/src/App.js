@@ -6,8 +6,16 @@ const App = () => {
   const [place, setPlace] = useState("");
   const [image, setImage] = useState("https://via.placeholder.com/200");
 
-  const handleSubmit = () => {
-    console.log(place);
+  const handleSubmit = async () => {
+    const response = await fetch("/api/placeImages", {
+      method: "POST",
+      body: JSON.stringify({ place }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const res = await response.json();
+    console.log(res);
   };
 
   const handleChange = (e) => {
