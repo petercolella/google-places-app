@@ -14,8 +14,11 @@ const App = () => {
         "Content-Type": "application/json",
       },
     });
+
     const res = await response.json();
     console.log(res);
+
+    setImage(res.imageUrl);
   };
 
   const handleChange = (e) => {
